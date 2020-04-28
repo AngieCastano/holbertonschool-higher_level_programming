@@ -8,7 +8,7 @@ int check_cycle(listint_t *list)
 {
 	listint_t *listcpy1, *listcpy2;
 
-	if (list == NULL)
+	if (list == NULL || list->next == NULL)
 		return (0);
 
 	listcpy1 = list;
