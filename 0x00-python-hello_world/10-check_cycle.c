@@ -17,7 +17,7 @@ int check_cycle(listint_t *list)
 	{
 		listcpy1 = listcpy1->next;
 		listcpy2 = listcpy2->next->next;
-		if (listcpy1 == listcpy2)
+		if (listcpy1->n == listcpy2->n)
 			return (1);
 	}
 	return (0);
