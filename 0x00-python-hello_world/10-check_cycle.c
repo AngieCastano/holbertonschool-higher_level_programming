@@ -11,10 +11,8 @@ int check_cycle(listint_t *list)
 	if (list == NULL || list->next == NULL)
 		return (0);
 
-	listcpy1 = list;
-	listcpy2 = list;
-	listcpy1 = listcpy1->next;
-	listcpy2 = listcpy2->next->next;
+	listcpy1 = list->next;
+	listcpy2 = list->next->next;
 	while (listcpy2)
 	{
 		if (listcpy1 == listcpy2)
