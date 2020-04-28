@@ -13,13 +13,14 @@ int check_cycle(listint_t *list)
 
 	listcpy1 = list;
 	listcpy2 = list;
-
+	listcpy1 = listcpy1->next;
+	listcpy2 = listcpy2->next->next;
 	while (listcpy2)
 	{
-		listcpy1 = listcpy1->next;
-		listcpy2 = listcpy2->next->next;
 		if (listcpy1 == listcpy2)
 			return (1);
+		listcpy1 = listcpy1->next;
+		listcpy2 = listcpy2->next->next;
 	}
 	return (0);
 }
