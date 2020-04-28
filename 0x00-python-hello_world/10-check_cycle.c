@@ -6,7 +6,8 @@
  */
 int check_cycle(listint_t *list)
 {
-	istint_t *listcpy1, *listcpy2;
+	listint_t *listcpy1, *listcpy2;
+
 	if (list == NULL)
 		return (0);
 
