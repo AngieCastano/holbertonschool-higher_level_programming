@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-number = -98
 n = abs(number)
-l = n % 10
+mod = n % 10
 if number < 0:
-        l *= -1
+        mod *= -1
         n = number
-if n % 10 > 5:
+if mod > 5:
     print("Last digit of {} is {} and is greater than 5".format(n, n % 10))
-if n % 10 == 0:
+if mod == 0:
     print("Last digit of {} is {} and is 0".format(n, n % 10))
-if n % 10 < 6 and n % 10 != 0:
-    print("Last digit of {} is {} and is less than 6 and not 0".format(n, l))
+if mod < 6 and n % 10 != 0:
+    print("Last digit of {} is {} and is less than 6 and not 0".format(n, mod))
