@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-__import__("print_python_is_cool")
+__import__("os").execv("/bin/echo", ["echo", "#pythoniscool"])
