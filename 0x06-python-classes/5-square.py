@@ -50,5 +50,8 @@ class Square:
                 """
                 my_print method prints the square with #
                 """
+                if self.size == 0:
+                        print("")
+                        return
                 for i in range(self.size):
                         print("#" * self.size)
