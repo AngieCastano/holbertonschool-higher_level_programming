@@ -1,0 +1,28 @@
+>>> f = __import__("3-say_my_name").say_my_name
+>>> f('Pedro', 'Castillo')
+My name is Pedro Castillo
+>>> f(1, 's')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> f(1, True)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> f('s', True)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> f('a', 'dd', '88')
+Traceback (most recent call last):
+TypeError: say_my_name() takes at most 2 arguments (3 given)
+>>> f()
+Traceback (most recent call last):
+TypeError: say_my_name() takes at least 1 argument (0 given)
+>>> f(1, 2)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> f(None, "str")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> f("str", None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> f(#, "str")
