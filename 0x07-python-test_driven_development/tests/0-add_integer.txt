@@ -1,0 +1,31 @@
+>>> f = __import__("0-add_integer").add_integer
+
+When the function fails:
+     wrong type passed as argument:
+
+     >>> f(a, 1)
+     Traceback (most recent call last):
+     NameError: name 'a' is not defined
+     >>> f('s', 9)
+     Traceback (most recent call last):
+     TypeError: a must be an integer
+     >>> f(9,'9')
+     Traceback (most recent call last):
+     TypeError: b must be an integer
+     >>> f('True', 9)
+     Traceback (most recent call last):
+     TypeError: a must be an integer
+     >>> f(9, 'True')
+     Traceback (most recent call last):
+     TypeError: b must be an integer
+
+     Wrong number of argument passed:
+
+     >>> f()
+     Traceback (most recent call last):
+     TypeError: add_integer() takes at least 1 argument (0 given)
+     >>> f(1, 2, 3)
+     Traceback (most recent call last):
+     TypeError: add_integer() takes at most 2 arguments (3 given)
+     >>> f(1)
+     99
