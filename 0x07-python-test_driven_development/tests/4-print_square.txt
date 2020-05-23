@@ -1,0 +1,46 @@
+>>> f = __import__("4-print_square").print_square
+>>> f(8)
+########
+########
+########
+########
+########
+########
+########
+########
+>>> f(-1)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+>>> f("str")
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> f(0.3)
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> f()
+Traceback (most recent call last):
+TypeError: print_square() takes exactly 1 argument (0 given)
+>>> f(2, 8)
+Traceback (most recent call last):
+TypeError: print_square() takes exactly 1 argument (2 given)
+>>> f(True)
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> f(5j)
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> f(-5j)
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> f(-0)
+>>> f(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
