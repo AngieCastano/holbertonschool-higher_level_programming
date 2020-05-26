@@ -11,7 +11,7 @@ class Rectangle:
     Class Rectangle beginnig
     """
     number_of_instances = 0
-    print_symbol = '#'
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """ Inizialization of class Rectangle
@@ -92,7 +92,7 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return string
         for h in range(self.__height):
-            string += Rectangle.print_symbol * self.__width
+            string += str(self.print_symbol) * self.__width
             if h != self.__height - 1:
                 string += '\n'
         return string
