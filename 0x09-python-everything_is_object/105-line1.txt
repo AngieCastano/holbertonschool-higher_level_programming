@@ -1,1 +1,1 @@
-NSMALLNEGINTS
+261(abs(-5) + 256)
