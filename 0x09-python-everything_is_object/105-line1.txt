@@ -1,1 +1,1 @@
-NSMALLPOSINTS[-1]
+261(abs(-5) + 257)
