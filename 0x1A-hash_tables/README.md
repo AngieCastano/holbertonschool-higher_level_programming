@@ -1,4 +1,4 @@
-x# 0x1A. C - Hash tables
+# 0x1A. C - Hash tables
 
 ## Resources:books:
 Read or watch:
