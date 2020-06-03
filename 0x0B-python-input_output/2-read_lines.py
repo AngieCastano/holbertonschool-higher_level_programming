@@ -19,4 +19,4 @@ def read_lines(filename="", nb_lines=0):
             for counter, line in enumerate(myFile, 1):
                 if counter > nb_lines:
                     break
-                print(myFile.readline(), end="")
+                print(line, end="")
