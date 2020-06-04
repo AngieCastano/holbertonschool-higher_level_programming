@@ -10,6 +10,6 @@ try:
     last_list = load_from_json_file(filename)
 except FileNotFoundError:
     last_list = []
-for count, item in sys.argv[1]:
+for item in sys.argv[1]:
     last_list.append(item)
 save_to_json_file(last_list, filename)
