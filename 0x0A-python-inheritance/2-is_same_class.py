@@ -9,4 +9,6 @@ def is_same_class(obj, a_class):
     """
     args: obj = object to look, a_class = instance expected object class
     """
-    return isinstance(obj, a_class)
+    if type(obj) == a_class:
+        return True
+    return False
