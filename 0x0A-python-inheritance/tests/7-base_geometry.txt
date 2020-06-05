@@ -1,4 +1,11 @@
 >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> BaseGeometry.integer_validator("my_int", 12)
+
+>>> BaseGeometry.area()
+area() is not implemented
+>>> BaseGeometry.integer_validator(“age”)
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
 >>> new = BaseGeometry()
 >>> new.integer_validator("my_int", 12)
 
