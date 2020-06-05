@@ -1,3 +1,5 @@
 >>> f = __import__("7-base_geometry").BaseGeometry
->>> f.integer_validator("my_int", 12, 8)
+>>> f.integer_validator("my_int", 12)
 
+>>> f.area()
+area() is not implemented
