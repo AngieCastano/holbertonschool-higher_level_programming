@@ -25,7 +25,7 @@ class BaseGeometry:
             raise ValueError("{} must be greater than 0".format(name))
 
 """
-class Rectangle that inherits from BaseGeometry, and something more
+class Rectangle that inherits from BaseGeometry
 """
 
 
