@@ -4,30 +4,6 @@ from models.base import Base
 """
 Class Rectangle. inherits from Class base
 """
-
-
-def type_error(value, name):
-    """
-    Validates value type
-    """
-    types = [int]
-    if type(value) not in types:
-        raise ValueError("{} must be an integer".format(name))
-
-def positive_number(value, name):
-    """
-    Validates thet value is a positive number
-    """
-    if value < 1:
-        raise ValueError("{} must be > 0".format(name))
-
-def negative_number(value, name):
-    """
-    Validates that value is not a negative number
-    """
-    if value < 0:
-        raise ValueError("{} must be >= 0".format(name))
-
 class Rectangle(Base):
     """
     inherits from rhe Base class
@@ -38,17 +14,9 @@ class Rectangle(Base):
         x = horizontal position, y = vertical position, id = object's id
         """
         super().__init__(id)
-        type_error(width, "width")
-        positive_number(width, "width")
         self.__width = width
-        type_error(height, "height")
-        positive_number(height, "height")
         self.__height = height
-        type_error(x , "x")
-        negative_number(x ,"x")
         self.__x = x
-        type_error(y , "y")
-        negative_number(y , "y")
         self.__y = y
 
     @property
@@ -153,3 +121,28 @@ class Rectangle(Base):
             for k in kwargs:
                 if hasattr(self, k):
                     setattr(self, k, kwargs[k])
+
+    @staticmethod
+    def type_error(value, name):
+        """
+        Validates value type
+        """
+        types = [int]
+        if type(value) not in types:
+            raise ValueError("{} must be an integer".format(name))
+
+    @staticmethod
+    def positive_number(value, name):
+        """
+        Validates thet value is a positive number
+        """
+        if value < 1:
+            raise ValueError("{} must be > 0".format(name))
+
+    @staticmethod
+    def negative_number(value, name):
+        """
+        Validates that value is not a negative number
+        """
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))
