@@ -1,6 +1,28 @@
 #/usr/bin/python3
 import inspect
 from models.base import Base
+def type_error(value, name):
+    """
+    Validates value type
+    """
+    types = [int]
+    if type(value) not in types:
+        raise ValueError("{} must be an integer".format(name))
+
+def positive_number(value, name):
+    """
+    Validates thet value is a positive number
+    """
+    if value < 1:
+        raise ValueError("{} must be > 0".format(name))
+
+def negative_number(value, name):
+    """
+    Validates that value is not a negative number
+    """
+    if value < 0:
+        raise ValueError("{} must be >= 0".format(name))
+
 """
 Class Rectangle. inherits from Class base
 """
@@ -14,10 +36,10 @@ class Rectangle(Base):
         x = horizontal position, y = vertical position, id = object's id
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -121,28 +143,3 @@ class Rectangle(Base):
             for k in kwargs:
                 if hasattr(self, k):
                     setattr(self, k, kwargs[k])
-
-    @staticmethod
-    def type_error(value, name):
-        """
-        Validates value type
-        """
-        types = [int]
-        if type(value) not in types:
-            raise ValueError("{} must be an integer".format(name))
-
-    @staticmethod
-    def positive_number(value, name):
-        """
-        Validates thet value is a positive number
-        """
-        if value < 1:
-            raise ValueError("{} must be > 0".format(name))
-
-    @staticmethod
-    def negative_number(value, name):
-        """
-        Validates that value is not a negative number
-        """
-        if value < 0:
-            raise ValueError("{} must be >= 0".format(name))
