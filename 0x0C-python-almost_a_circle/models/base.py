@@ -10,7 +10,6 @@ class Base:
     base class
     """
     __nb_objects = 0
-    __ids = []
 
     def __init__(self, id=None):
         """
@@ -18,13 +17,9 @@ class Base:
         """
         if id:
             self.id = id
-            if self.id not in Base.__ids:
-                Base.__ids.append(self.id)
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-            if self.id not in Base.__ids:
-                Base.__ids.append(self.id)
 
     @staticmethod
     def to_json_string(list_dictionaries):
