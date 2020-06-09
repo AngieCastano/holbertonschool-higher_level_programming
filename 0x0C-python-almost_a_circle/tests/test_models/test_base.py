@@ -1,10 +1,7 @@
 #!/usr/bin/python3
+"""Test class"""
 import unittest
 from models.base import Base
-
-"""
-Test class
-"""
 
 
 class TestBase(unittest.TestCase):
