@@ -2,30 +2,6 @@
 from models.base import Base
 
 
-def type_error(value, name):
-    """
-    Validates value type
-    """
-    types = [int]
-    if type(value) not in types:
-        raise ValueError("{} must be an integer".format(name))
-
-
-def positive_number(value, name):
-    """
-    Validates thet value is a positive number
-    """
-    if value < 1:
-        raise ValueError("{} must be > 0".format(name))
-
-
-def negative_number(value, name):
-    """
-    Validates that value is not a negative number
-    """
-    if value < 0:
-        raise ValueError("{} must be >= 0".format(name))
-
 """
 Class Rectangle. inherits from Class base
 """
@@ -58,8 +34,11 @@ class Rectangle(Base):
         """
         Sets the width's Rectangle
         """
-        type_error(value, "width")
-        positive_number(value, "width")
+        types = [int]
+        if type(value) not in types:
+                    raise ValueError("width must be an integer")
+        if value < 1:
+                    raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -74,8 +53,11 @@ class Rectangle(Base):
         """
         Sets the height's rectangle
         """
-        type_error(value, "height")
-        positive_number(value, "height")
+        types = [int]
+        if type(value) not in types:
+            raise ValueError("height must be an integer")
+        if value < 1:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -90,8 +72,11 @@ class Rectangle(Base):
         """
         Sets x rectangle's position
         """
-        type_error(value, "x")
-        negative_number(value, "x")
+        types = [int]
+        if type(value) not in types:
+            raise ValueError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -106,8 +91,11 @@ class Rectangle(Base):
         """
         Sets the y' Rectangle position
         """
-        type_error(value, "y")
-        negative_number(value, "y")
+        types = [int]
+        if type(value) not in types:
+            raise ValueError("y must be an integer")
+        if value < 0:
+                    raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
