@@ -39,8 +39,8 @@ class Square(Rectangle):
         """
         Updates the attributes with args an kwargs
         """
-        new_args = args[:]
-        if args:
+        new_args = []
+        if args is not None and len(args) > 0:
             if len(args) > 2:
                 new_args = args[:]
                 new_args = list(new_args)
@@ -50,7 +50,7 @@ class Square(Rectangle):
             if "size" in kwargs:
                 kwargs["width"] = kwargs["size"]
                 kwargs["height"] = kwargs["size"]
-        super(Square, self).update(new_args, **kwargs)
+        super(Square, self).update(*new_args, **kwargs)
 
     def to_dictionary(self):
         """
