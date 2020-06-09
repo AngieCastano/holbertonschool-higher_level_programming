@@ -119,7 +119,7 @@ class Rectangle(Base):
         """
         Updates the object values with args
         """
-        if len(args) > 0:
+        if args is not None:
             for arg_int, ar in zip(self.__dict__.keys(), args):
                 if hasattr(self, arg_int):
                     setattr(self, arg_int, ar)
