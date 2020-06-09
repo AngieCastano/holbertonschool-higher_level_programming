@@ -120,7 +120,8 @@ class Rectangle(Base):
         Updates the object values with args
         """
         if args is not None and len(args) > 0:
-            for arg_int, ar in zip(self.__dict__.keys(), args):
+            argum = ["id", "width", "height", "x", "y"]
+            for arg_int, ar in zip(argum, args):
                 setattr(self, arg_int, ar)
         else:
             for k in kwargs:
