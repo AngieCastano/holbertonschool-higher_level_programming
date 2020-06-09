@@ -41,6 +41,7 @@ class Square(Rectangle):
         """
         new_args = []
         if args is not None and len(args) > 0:
+            new_args = args[:]
             if len(args) > 2:
                 new_args = args[:]
                 new_args = list(new_args)
