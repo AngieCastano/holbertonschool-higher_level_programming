@@ -1,6 +1,7 @@
-#/usr/bin/python3
-import inspect
+#!/usr/bin/python3
 from models.base import Base
+
+
 def type_error(value, name):
     """
     Validates value type
@@ -9,12 +10,14 @@ def type_error(value, name):
     if type(value) not in types:
         raise ValueError("{} must be an integer".format(name))
 
+
 def positive_number(value, name):
     """
     Validates thet value is a positive number
     """
     if value < 1:
         raise ValueError("{} must be > 0".format(name))
+
 
 def negative_number(value, name):
     """
@@ -26,6 +29,8 @@ def negative_number(value, name):
 """
 Class Rectangle. inherits from Class base
 """
+
+
 class Rectangle(Base):
     """
     inherits from rhe Base class
@@ -53,7 +58,6 @@ class Rectangle(Base):
         """
         Sets the width's Rectangle
         """
-        print("width setter called")
         type_error(value, "width")
         positive_number(value, "width")
         self.__width = value
@@ -70,7 +74,6 @@ class Rectangle(Base):
         """
         Sets the height's rectangle
         """
-        print("heigth setter called")
         type_error(value, "height")
         positive_number(value, "height")
         self.__height = value
@@ -87,7 +90,6 @@ class Rectangle(Base):
         """
         Sets x rectangle's position
         """
-        print("x setter called")
         type_error(value, "x")
         negative_number(value, "x")
         self.__x = value
@@ -104,7 +106,6 @@ class Rectangle(Base):
         """
         Sets the y' Rectangle position
         """
-        print("y setter called")
         type_error(value, "y")
         negative_number(value, "y")
         self.__y = value
@@ -119,27 +120,36 @@ class Rectangle(Base):
         """
         Displays rectangle's graphic
         """
-        print("\n" * self.__y, end = "")
+        print("\n" * self.__y, end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
-            print("#"* self.__width)
+            print("#" * self.__width)
 
     def __str__(self):
         """
         modificating the __str__magic method
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
 
     def update(self, *args, **kwargs):
         """
         Updates the object values with args
         """
         if args is not None:
-            for arg_int, ar in zip(self.__dict__.keys(), args):
-                if hasattr(self, arg_int):
-                    setattr(self, arg_int, ar)
+            if len(args) > 0:
+                for arg_int, ar in zip(self.__dict__.keys(), args[0]):
+                    if hasattr(self, arg_int):
+                        setattr(self, arg_int, ar)
         if kwargs is not None:
             for k in kwargs:
                 if hasattr(self, k):
                     setattr(self, k, kwargs[k])
+
+    def to_dictionary(self):
+        """
+        Returns an object dictionary
+        """
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
