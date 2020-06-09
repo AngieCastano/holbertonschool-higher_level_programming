@@ -119,12 +119,13 @@ class Rectangle(Base):
         """
         Updates the object values with args
         """
-        for arg_int, ar in zip(self.__dict__.keys(), args):
-            if hasattr(self, arg_int):
-                setattr(self, arg_int, ar)
-            for k in kwargs:
-                if hasattr(self, k):
-                    setattr(self, k, kwargs[k])
+        if (len(args)) != 0:
+            for arg_int, ar in zip(self.__dict__.keys(), args):
+                if hasattr(self, arg_int):
+                    setattr(self, arg_int, ar)
+        for k in kwargs:
+            if hasattr(self, k):
+                setattr(self, k, kwargs[k])
 
     def to_dictionary(self):
         """
