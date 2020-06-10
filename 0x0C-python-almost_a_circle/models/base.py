@@ -54,9 +54,10 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """load from file"""
-        with open(cls.__name__+".json", mode="r", encoding="utf-8") as File:
-            data = File.read()
-            print(data)
-            data2 = Base.from_json_string(data)
-            print(len(data2))
-            print(type(data2))
+        try:
+            with open(cls.__name__+".json", mode="r", encoding="utf-8") as F:
+                data = F.read()
+                data2 = Base.from_json_string(data)
+                return [cls.create(**_list) for _list in data2]
+        except IOError:
+            return []
