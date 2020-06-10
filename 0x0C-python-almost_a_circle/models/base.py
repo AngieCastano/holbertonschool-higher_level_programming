@@ -70,6 +70,5 @@ class Base:
             dictionaries = [_list.to_dictionary() for _list in list_objs]
             fieldnames = ['x', 'y', 'id', 'height', 'width']
             writer = csv.DictWriter(CSV, fieldnames=fieldnames)
-            writer.writeheader()
             for row in dictionaries:
                 writer.writerow(row)
