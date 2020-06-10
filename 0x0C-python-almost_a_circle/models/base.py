@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Class Base"""
 import json
+import csv
 
 
 class Base:
@@ -61,3 +62,14 @@ class Base:
                 return [cls.create(**_list) for _list in data2]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializesin CSV"""
+        with open(cls.__name__+".csv", mode="w") as CSV:
+            dictionaries = [_list.to_dictionary() for _list in list_objs]
+            fieldnames = ['x', 'y', 'id', 'height', 'width']
+            writer = csv.DictWriter(CSV, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in dictionaries:
+                writer.writerow(row)
