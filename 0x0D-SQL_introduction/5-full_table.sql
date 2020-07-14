@@ -1,3 +1,3 @@
 -- describe a table
 -- shows the data tipe inside
-DESCRIBE first_table;
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'first_table';
