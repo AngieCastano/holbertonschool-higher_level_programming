@@ -1,3 +1,3 @@
 -- shows the average
 -- of score
-SELECT AVG(score) as averge_score FROM second_table;
+SELECT AVG(score) as averge FROM second_table;
