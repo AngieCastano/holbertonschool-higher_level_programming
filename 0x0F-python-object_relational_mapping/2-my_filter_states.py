@@ -12,6 +12,7 @@ if __name__ == "__main__":
         port=3306
     )
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name = %(name)s ORDER BY id ASC", {'name': sys.argv[4]})
+    cursor.execute("SELECT * FROM states WHERE name=% (name)s ORDER BY id ASC",
+                   {'name': sys.argv[4]})
     result = cursor.fetchall()
     print (result)
