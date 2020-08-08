@@ -15,7 +15,8 @@ if __name__ == '__main__':
         port=3306
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name=% (name)s ORDER BY id ASC",
+                                      {'name': sys.argv[4]})
     result = cursor.fetchall()
     for row in result:
         print(row)
