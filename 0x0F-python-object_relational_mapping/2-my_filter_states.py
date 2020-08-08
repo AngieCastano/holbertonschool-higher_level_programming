@@ -15,8 +15,9 @@ if __name__ == '__main__':
         port=3306
     )
     cursor = connection.cursor()
-    qu = "SELECT * FROM states WHERE BINARY name LIKE %(name)s ORDER BY id ASC"
-    cursor.execute(qu, {'name': sys.argv[4]})
+    qu = "SELECT * FROM states WHERE BINARY name LIKE '{}' ORDER BY id "\
+         "ASC".format(sys.argv[4])
+    cursor.execute(qu)
     result = cursor.fetchall()
     for row in result:
         print(row)
