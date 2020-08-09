@@ -15,8 +15,10 @@ if __name__ == '__main__':
         port=3306
     )
     cursor = connection.cursor()
-    qu = "SELECT * FROM cities ORDER BY id ASC"
-    cursor.execute(qu)
+    qu = "SELECT cities.id, cities.name, states.name FROM states,"
+    e = " cities WHERE cities.state_id = states.id ORDER BY cities.id"
+    que = qu + e
+    cursor.execute(que)
     result = cursor.fetchall()
     for row in result:
         print(row)
