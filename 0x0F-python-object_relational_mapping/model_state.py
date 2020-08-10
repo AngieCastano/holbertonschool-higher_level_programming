@@ -7,10 +7,9 @@ from sqlalchemy import Integer, String, Column
 
 Base = declarative_base()
 
-"""State class, creates a mysql table called states"""
-
 
 class State(Base):
+        """State class, creates a mysql table called states"""
         __tablename__ = "states"
 
         id = Column(Integer, primary_key=True, autoincrement=True)
