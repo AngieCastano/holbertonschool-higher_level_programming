@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #  takes in a URL, displays the size of the body of the response
-curl -w "%{size_download}\n" "$@"
+curl -sw "%{size_request}\n" "$@"
