@@ -1,3 +1,3 @@
-#!/usr/bash
-# writes sttus code without pipelines
-curl --write-out "%{http_code}" -s --output /dev/null "$1"
+#!/bin/bash
+#  takes in a URL, displays the size of the body of the response
+curl -sI "$@" | grep -i Content-Length | awk '{print $2}'
