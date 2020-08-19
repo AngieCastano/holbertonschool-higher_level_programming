@@ -1,3 +1,3 @@
 #!/bin/bash
 #  display allowed methods
-curl -sI "$@" | grep -i allow | awk '{print $2}'
+curl -sI "$@" | grep -i Allow | awk '{print $2}'
