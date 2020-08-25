@@ -9,6 +9,7 @@ if __name__ == '__main__':
 
     try:
         with urllib.request.urlopen(sys.argv[1]) as data:
-            print(data.info())
+            data = data.read()
+            print(data.decode())
     except urllib.error.HTTPError:
         print("Error code: {}".format(urllib.error.HTTPError.getcode()))
