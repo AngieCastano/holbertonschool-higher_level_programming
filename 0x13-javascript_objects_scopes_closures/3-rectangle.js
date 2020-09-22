@@ -8,11 +8,10 @@ class Rectangle {
   }
 
   print () {
-    for (let j = 0; j < this.height; j++) {
-      for (let i = 0; i < this.width; i++) {
-        process.stdout.write('x');
-      }
-      process.stdout.write('\n');
+    if (this.width > 0 && this.height > 0) {
+      const StringWidth = 'X'.repeat(this.width) + '\n';
+      const StringHeight = StringWidth.repeat(this.height);
+      console.log(StringHeight.slice(0, -1));
     }
   }
 }
