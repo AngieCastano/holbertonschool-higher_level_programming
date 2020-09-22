@@ -6,12 +6,13 @@ class Rectangle {
       this.height = h;
     }
   }
+
   print () {
     for (var j = 0; j < this.height; j++) {
       for (var i = 0; i < this.width; i++) {
-        process.stdout.write("x");
+        process.stdout.write('x');
       }
-      process.stdout.write("\n");
+      process.stdout.write('\n');
     }
   }
 }
