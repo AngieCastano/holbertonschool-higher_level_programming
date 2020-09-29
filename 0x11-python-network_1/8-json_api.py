@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-"""
-Post of a letter to http://0.0.0.0:5000/search_user
-"""
+'''
+Post to http://0.0.0.0:5000/search_user API
+'''
+import requests
+import sys
+
 
 if __name__ == '__main__':
-    import requests
-    import sys
-
-    url = 'http://0.0.0.0:5000/search_user'
     if len(sys.argv) == 1:
-        x = requests.post(url, data={"q": ""})
-    else:
-        x = requests.post(url, data={"q": sys.argv[1]})
-    if x.status_code < 400:
-        if not isinstance(x.json(), dict):
-            print("Not a valid JSON")
-        elif bool(x.json()):
-            print("[{}] {}".format(x.json().get('id'), x.json().get('name')))
-        else:
-            print("No result")
-    else:
-        print("Error code: {}".format(x.status_code))
+        print('No result')
+        exit()
+    if len(sys.argv) == 2:
+        q = sys.argv[1]
+        url = 'http://0.0.0.0:5000/search_user'
+        r = requests.post(url, data={'q': q})
+        try:
+            json = r.json()
+            print("[{}] {}".format(json_response.get('id'),
+                                   json_response.get('name')))
+        except ValueError:
+            print('Not a valid JSON')
