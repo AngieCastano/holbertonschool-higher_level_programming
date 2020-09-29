@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""
-Posting information to an url
-"""
+'''
+pots an email to the url received
+'''
 import requests
 import sys
 
 
 if __name__ == '__main__':
-    x = requests.post(sys.argv[1], data={'email': sys.argv[2]})
-    print(x.text)
+    r = requests.post(sys.argv[1], data={'email': sys.argv[2]})
+    print(r.text)
