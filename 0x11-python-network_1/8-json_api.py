@@ -12,10 +12,12 @@ if __name__ == '__main__':
         x = requests.post(url, data={"q": ""})
     else:
         x = requests.post(url, data={"q": sys.argv[1]})
-    try:
-        if bool(x.json()):
+    if x.status_code < 400:
+        if not isinstance(x.json(), dict):
+            print("Not a valid JSON")
+        elif bool(x.json()):
             print("[{}] {}".format(x.json().get('id'), x.json().get('name')))
         else:
             print("No result")
-    except ValueError:
-        print("Not a valid JSON")
+    else:
+        print("Error code: {}".format(x.status_code))
