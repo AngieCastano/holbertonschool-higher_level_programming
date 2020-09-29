@@ -6,7 +6,9 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    url = f"https://api.github.com/users/{username}"
-    x = requests.get(url)
-    print(x.json().get('id'))
+    import requests
+    import sys
+    tok = sys.argv[2]
+    h = {'Authorization': 'token ' + tok}
+    login = requests.get('https://api.github.com/user', headers=h)
+    print(login.json().get('id'))
