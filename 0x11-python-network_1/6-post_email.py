@@ -8,9 +8,5 @@ if __name__ == '__main__':
     import sys
 
     url = sys.argv[1]
-    kwargs = {'email': sys.argv[2]}
-    try:
-        x = requests.post(url, data=kwargs)
-        print(x.text)
-    except:
-        pass
+    x = requests.post(url, data={'email': sys.argv[2]})
+    print(x.text)
